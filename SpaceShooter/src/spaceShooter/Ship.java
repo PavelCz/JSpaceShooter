@@ -60,6 +60,10 @@ public class Ship extends Entity {
 	public void accelerate(int type, int delta) {// type == 0: Engines; type == 1: Rotation
 		this.velocity.speedUp(type, delta * this.accelerations[type], this.rotation);
 	}
+	public void gravity() {// type == 0: Engines; type == 1: Rotation
+		this.velocity.velocity.x-=0.00006f;
+		//this.velocity.speedUp(type, delta * acceleration, rotation);
+	}
 
 	public void accelerate(int type, int delta, float rotation) {// type == 0: Engines; type == 1: Rotation
 		this.velocity.speedUp(type, delta * this.accelerations[type], rotation);

@@ -89,10 +89,6 @@ public class SpaceLanderGame extends BasicGame {
 			playerShip.accelerate(0, delta);
 		}
 
-		if (input.isKeyDown(Input.KEY_S)) {
-			playerShip.accelerate(0, -delta);
-		}
-
 		
 
 		if (input.isKeyDown(Input.KEY_LCONTROL)) {
@@ -111,10 +107,8 @@ public class SpaceLanderGame extends BasicGame {
 			// }
 
 		}
-
-		// System.out.println(playerShip.engineIsStoppable());
-
-		// playerShip.move(delta);
+		
+		playerShip.gravity();
 	}
 
 }
