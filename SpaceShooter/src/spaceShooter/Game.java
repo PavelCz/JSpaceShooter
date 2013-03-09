@@ -33,7 +33,7 @@ public class Game extends BasicGame {
 		bezugspunkt1 = new PlayerShip(game, -300, 200);
 		
 		try {
-			pauseScreen = new Sprite("/src/spaceShooter/MenuScreen1.png", game);
+			pauseScreen = new Sprite("/data/MenuScreen1.png", game);
 		} catch (SlickException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

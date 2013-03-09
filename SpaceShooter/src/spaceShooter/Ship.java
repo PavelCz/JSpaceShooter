@@ -4,7 +4,6 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 
 public class Ship extends Entity {
-	
 
 	public Sprite getImage() {
 		return image;
@@ -26,7 +25,7 @@ public class Ship extends Entity {
 		return yCoordinate;
 	}
 
-	public Ship(GameContainer container, String imagePath, int x, int y, float engineStopInterval,
+	public Ship(GameContainer container, String imagePath, int x, int y, 
 			float rotationAcceleration, float acceleration, float scale) {
 		try {
 			this.image = new Sprite(imagePath, container);
@@ -105,7 +104,6 @@ public class Ship extends Entity {
 			}
 		}
 	}
-
 
 	public void update(int delta) {
 		this.updateRotationVelocity(delta);
