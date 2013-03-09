@@ -8,7 +8,7 @@ import org.newdawn.slick.geom.Vector2f;
  */
 public class Velocity {
 	// private EngineVelocity engineVelocity;
-	Vector2f velocity;
+	private Vector2f velocity;
 	private float rotationSpeed;
 
 	public Velocity(float engineSpeed, float direction, float rotationSpeed) {
