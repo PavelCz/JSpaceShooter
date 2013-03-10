@@ -26,7 +26,7 @@ public class SpaceLanderGame extends BasicGame {
 
 	@Override
 	public void init(GameContainer game) {
-		playerShip = new PlayerShip(game, 0, 0);
+		playerShip = new PlayerShip(game, 0, 0, 0.0001f, 0.00015f, 1f);
 		try {
 			pauseScreen = new Sprite("/data/MenuScreen1.png", game);
 		} catch (SlickException e1) {
