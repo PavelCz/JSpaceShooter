@@ -13,8 +13,6 @@ import org.newdawn.slick.SlickException;
 public class SpaceLanderGame extends BasicGame {
 	private PlayerShip playerShip;
 	private Background background;
-	private PlayerShip bezugspunkt;
-	private PlayerShip bezugspunkt1;
 	
 	private Sprite pauseScreen;
 
@@ -29,9 +27,6 @@ public class SpaceLanderGame extends BasicGame {
 	@Override
 	public void init(GameContainer game) {
 		playerShip = new PlayerShip(game, 0, 0);
-		bezugspunkt = new PlayerShip(game, 300, 150);
-		bezugspunkt1 = new PlayerShip(game, -300, 200);
-		
 		try {
 			pauseScreen = new Sprite("/data/MenuScreen1.png", game);
 		} catch (SlickException e1) {
@@ -65,8 +60,6 @@ public class SpaceLanderGame extends BasicGame {
 
 		background.draw(0f, 0f, 0f, 1f);
 		playerShip.draw();
-		bezugspunkt.draw();
-		bezugspunkt1.draw();
 		if(this.paused) {
 			pauseScreen.draw(0f,0f, 0f, 1f);
 		}
