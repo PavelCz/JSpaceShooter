@@ -1,24 +1,18 @@
 package spaceShooter;
 
-import org.lwjgl.LWJGLException;
-import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
 public class SpaceLanderGame extends BasicGame {
 	private PlayerShip playerShip;
 	private Background background;
-	
+
 	private Sprite pauseScreen;
 
 	private boolean paused;
-
-	// private Ship [] aliveShips;
 
 	public SpaceLanderGame() {
 		super("SpaceShooter");
@@ -48,11 +42,11 @@ public class SpaceLanderGame extends BasicGame {
 		Input input = container.getInput();
 		if (input.isKeyPressed(Input.KEY_ESCAPE)) {
 			this.paused = !this.paused;
-		} 
-		if(!this.paused) {
+		}
+		if (!this.paused) {
 			updateGame(container, delta);
-		} 
-		
+		}
+
 	}
 
 	@Override
@@ -60,8 +54,8 @@ public class SpaceLanderGame extends BasicGame {
 
 		background.draw(0f, 0f, 0f, 1f);
 		playerShip.draw();
-		if(this.paused) {
-			pauseScreen.draw(0f,0f, 0f, 1f);
+		if (this.paused) {
+			pauseScreen.draw(0f, 0f, 0f, 1f);
 		}
 
 	}
@@ -82,25 +76,11 @@ public class SpaceLanderGame extends BasicGame {
 			playerShip.accelerate(0, delta);
 		}
 
-		
-
-		if (input.isKeyDown(Input.KEY_LCONTROL)) {
-			// playerShip.stopRotation();
-			// if (playerShip.engineIsStoppable()) {
-			playerShip.stopEngine(0, delta);
-			
-			// }
-
-		}
 		if (input.isKeyDown(Input.KEY_LSHIFT)) {
-			// playerShip.stopRotation();
-			// if (playerShip.engineIsStoppable()) {
-			
 			playerShip.stopEngine(1, delta);
-			// }
 
 		}
-		
+
 		playerShip.accelerate(0, delta, 0.00006f, 180);
 	}
 
