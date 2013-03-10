@@ -1,5 +1,7 @@
 package spaceShooter;
 
+import java.math.MathContext;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 
@@ -25,7 +27,7 @@ public class Ship extends Entity {
 		return yCoordinate;
 	}
 
-	public Ship(GameContainer container, String imagePath, int x, int y, 
+	public Ship(GameContainer container, String imagePath, int x, int y,
 			float rotationAcceleration, float acceleration, float scale) {
 		try {
 			this.image = new Sprite(imagePath, container);
@@ -37,7 +39,7 @@ public class Ship extends Entity {
 		this.accelerations = new float[2];
 		this.accelerations[0] = acceleration;
 		this.accelerations[1] = rotationAcceleration;
-		
+
 		this.height = image.getHeight();
 		this.width = image.getWidth();
 
@@ -63,8 +65,9 @@ public class Ship extends Entity {
 	public void accelerate(int type, int delta) {// type == 0: Engines; type == 1: Rotation
 		this.velocity.speedUp(type, delta * this.accelerations[type], this.rotation);
 	}
+
 	public void accelerate(int type, int delta, float acceleration, float rotation) {// type == 0: Engines; type == 1: Rotation
-		//this.velocity.velocity.x-=0.00006f;
+		// this.velocity.velocity.x-=0.00006f;
 		this.velocity.speedUp(type, delta * acceleration, rotation);
 	}
 
@@ -112,11 +115,24 @@ public class Ship extends Entity {
 		}
 	}
 
+	int counter = 0;
+
 	public void update(int delta) {
 		this.updateRotationVelocity(delta);
 
 		this.updatePosition(delta);
-
+		/*
+		 * if(this.collidesWithLine(300f)) { float currentHeight = this.height / (float)Math.cos((float) this.rotation);
+		 * this.yCoordinate = 300 - currentHeight / 2; }
+		 */
+		
+		float diagonal = (float)Math.sqrt((this.height / 2) * (this.height / 2) + (this.width / 2) * (this.width / 2));
+		float diagonalAngle = 45;
+		float angle = diagonalAngle - Math.abs(this.normalizeAngle2(this.rotation));
+		float yMin = (float)Math.cos(Math.toRadians(angle)) * diagonal;
+		if (counter++ % 1000 == 0) {
+			System.out.println(yMin);
+		}
 	}
 
 	public void updatePosition(int delta) {
@@ -149,5 +165,12 @@ public class Ship extends Entity {
 		} else {
 			return angle;
 		}
+	}
+	float normalizeAngle2(float angle)
+	{
+	    float newAngle = angle;
+	    while (newAngle <= -180) newAngle += 360;
+	    while (newAngle > 180) newAngle -= 360;
+	    return newAngle;
 	}
 }

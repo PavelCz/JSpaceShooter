@@ -18,8 +18,8 @@ public abstract class Entity {
 		return rotation;
 	}
 
-	public boolean collidesWithLine(int y) {
-		float currentHeight = (float)Math.cos((float) this.rotation) / this.height;
+	public boolean collidesWithLine(float y) {
+		float currentHeight = this.height / (float)Math.cos(this.rotation);
 		return this.yCoordinate + currentHeight / 2 >= y;
 	}
 }

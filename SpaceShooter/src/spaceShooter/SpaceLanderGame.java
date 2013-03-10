@@ -82,6 +82,7 @@ public class SpaceLanderGame extends BasicGame {
 		}
 
 		playerShip.accelerate(0, delta, 0.00006f, 180);
+		
 	}
 
 }
