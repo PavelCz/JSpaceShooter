@@ -37,6 +37,9 @@ public class Ship extends Entity {
 		this.accelerations = new float[2];
 		this.accelerations[0] = acceleration;
 		this.accelerations[1] = rotationAcceleration;
+		
+		this.height = image.getHeight();
+		this.width = image.getWidth();
 
 		this.rotation = 0;
 
