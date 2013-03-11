@@ -148,9 +148,9 @@ public class Ship extends Entity {
 		image.draw(xCoordinate, yCoordinate, rotation, scale);
 	}
 
-	public void drawRelative(Ship referencePoint) { // draws the ship relative to a reference point
-		image.draw(xCoordinate - referencePoint.getxCoordinate(),
-				yCoordinate - referencePoint.getyCoordinate(), rotation, scale);
+	public void drawRelative(Entity referencePoint) { // draws the ship relative to a reference point
+		image.draw(xCoordinate - referencePoint.getXCoordinate(),
+				yCoordinate - referencePoint.getYCoordinate(), rotation, scale);
 	}
 
 	public void drawCentered() { // draws the ship with the Camera centered on it

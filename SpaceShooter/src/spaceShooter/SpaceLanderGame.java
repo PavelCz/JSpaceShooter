@@ -9,6 +9,7 @@ import org.newdawn.slick.SlickException;
 public class SpaceLanderGame extends BasicGame {
 	private PlayerShip playerShip;
 	private Background background;
+	private Camera camera;
 
 	private Sprite pauseScreen;
 
@@ -34,6 +35,7 @@ public class SpaceLanderGame extends BasicGame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		camera = new Camera(game);
 
 	}
 
@@ -53,7 +55,7 @@ public class SpaceLanderGame extends BasicGame {
 	public void render(GameContainer container, Graphics g) throws SlickException {
 
 		background.draw(0f, 0f, 0f, 1f);
-		playerShip.draw();
+		playerShip.drawRelative(camera);
 		if (this.paused) {
 			pauseScreen.draw(0f, 0f, 0f, 1f);
 		}

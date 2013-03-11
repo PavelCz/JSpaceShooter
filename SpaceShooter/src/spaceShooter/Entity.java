@@ -22,4 +22,12 @@ public abstract class Entity {
 		float currentHeight = this.height / (float)Math.cos(this.rotation);
 		return this.yCoordinate + currentHeight / 2 >= y;
 	}
+	
+	public float getXCoordinate() {
+		return this.xCoordinate;
+	}
+	
+	public float getYCoordinate() {
+		return this.yCoordinate;
+	}
 }
